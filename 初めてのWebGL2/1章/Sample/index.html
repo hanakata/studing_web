@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>RealTime 3D Graphics with WebGL2</title>
+        <link rel="shortcut icon" type="image/png" href="/common/images/favicon.png">
+        <!--
+            canvasのスタイルを指定するコード。
+            枠がわからないので青い点線で枠を表示しただけ
+        -->
+        <style type="text/css">
+            canvas{
+                border: 5px dotted blue;
+            }
+        </style>
+        <script type="text/javascript">
+            //strictモードの有効化。プログラムや関数を厳密なコンテキストで評価する
+            'use strict';
+
+            function init(){
+                const canvas = document.getElementById('webgl-canvas');
+                if(!canvas){
+                    console.error('Sorry! No HTML5 Canvas was found on this page');
+                    return;
+                }
+                //以下コードでWebGLの利用を居k
+                const gl = canvas.getContext('webgl2');
+                const message = gl
+                    ? 'Hooray! You got a WebGL2 context'
+                    : 'Sorry! WebGL is not available';
+                alert(message);
+            }
+            window.onload = init;
+        </script>
+    </head>
+    <body>
+        <!--
+            idはDOM内でのcanvasの識別子。widthとheightは横幅と高さ
+        -->
+        <canvas id="webgl-canvas" width="800" height="600">
+            Your browser does not support the HTML5 canvas element
+        </canvas>
+    </body>
+</html>
