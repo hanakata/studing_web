@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>React Sample</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script
+          src="https://unpkg.com/react@16/umd/react.development.js">
+        </script>
+        <script
+          src="https://unpkg.com/react-dom@16/umd/react-dom.development.js">
+        </script>
+        <script>
+            // 要素を作成
+            const dish = React.createElement("h1", null, "Baked Salmon");
+            const dessert = React.createElement("h2", null, "Cocount Cream Pie")
+
+            // 要素を表示。複数同じIDへ描画可能
+            ReactDOM.render(
+                [dish, dessert],
+                document.getElementById('root')
+            );
+            //Todo:
+            React.createElement(
+                "section",
+                { id: "baked-salmon" },
+                null,
+                React.createElement("li", null, "2 lb salmon"),
+                React.createElement("li", null, "5 sprigs fresh rosemary"),
+                React.createElement("li", null, "2 tablespons olive oil"),
+                React.createElement("li", null, "2 small lemon"),
+                React.createElement("li", null, "1 teaspoon kosher salt"),
+                React.createElement("li", null, "4 cloves of chopped galic")
+            )
+
+        </script>
+    </body>
+</html>

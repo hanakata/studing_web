@@ -1,0 +1,12 @@
+Reactの世界へようこそ
+
+環境の構築
+    サンプルコード
+        GitHubにある
+    React Dev Tools
+        ブラウザの拡張機能
+            chromeにもある
+    Node
+        8.6.2以上が入っていればOK
+    npm
+    yarn
