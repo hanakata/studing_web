@@ -16,24 +16,60 @@
             // 要素を作成
             const dish = React.createElement("h1", null, "Baked Salmon");
             const dessert = React.createElement("h2", null, "Cocount Cream Pie")
+            // 要素を入れ子にもできる
+            const list = React.createElement(
+                "section",
+                { id: "baked-salmon" },
+                React.createElement("h1",null,"Baked Salmon"),
+                React.createElement(
+                    "ul",
+                    { className: "ingredients" },
+                    React.createElement("li", null, "2 lb salmon"),
+                    React.createElement("li", null, "5 sprigs fresh rosemary"),
+                    React.createElement("li", null, "2 tablespons olive oil"),
+                    React.createElement("li", null, "2 small lemon"),
+                    React.createElement("li", null, "1 teaspoon kosher salt"),
+                    React.createElement("li", null, "4 cloves of chopped galic")
+                ),
+                React.createElement(
+                    "section",
+                    { className: "instructions" },
+                    React.createElement("h2", null, "Cooking Instructions"),
+                    React.createElement("p", null, "Prehead the oven to 375 degrees."),
+                    React.createElement("p", null, "Ligthly coat aluminum foil with oil."),
+                    React.createElement("p", null, "Place salmon on foil."),
+                    React.createElement(
+                        "p",
+                        null,
+                        "Cover with rosemasy, sliced lemons, chopped garlic"
+                    )
+                )
+            )
+            // 表示する要素を配列に保存
+            const items = [
+                "2 lb salmon",
+                "5 sprigs fresh rosemary",
+                "2 tablespons olive oil",
+                "2 small lemon",
+                "1 teaspoon kosher salt",
+                "4 cloves of chopped galic",
+            ]
+            //指定した配列内の要素を回して表示
+            //注意点：各要素のkeyプロパティにユニークな値を設定しないとワーニング
+            const list2 = React.createElement(
+                "ul",
+                { className: "ingredients" },
+                items.map((ingredient, i) =>
+                    //各要素のkeyプロパティにユニークな値を設定
+                    React.createElement("li", { key: i}, ingredient)
+                )
+            )
 
             // 要素を表示。複数同じIDへ描画可能
             ReactDOM.render(
-                [dish, dessert],
+                [dish, dessert, list, list2],
                 document.getElementById('root')
             );
-            //Todo:
-            React.createElement(
-                "section",
-                { id: "baked-salmon" },
-                null,
-                React.createElement("li", null, "2 lb salmon"),
-                React.createElement("li", null, "5 sprigs fresh rosemary"),
-                React.createElement("li", null, "2 tablespons olive oil"),
-                React.createElement("li", null, "2 small lemon"),
-                React.createElement("li", null, "1 teaspoon kosher salt"),
-                React.createElement("li", null, "4 cloves of chopped galic")
-            )
 
         </script>
     </body>
