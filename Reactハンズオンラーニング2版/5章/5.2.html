@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta charset="utf-8" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+    <title>React Recipes</title>
+  </head>
+  <body>
+    <div id="react-container"></div>
+    <script type="text/babel">
+    // レシピのコンポーネントをJSXで記述する
+    //この配列には2つのオブジェクトが格納されている
+    const data = [
+      {
+          //料理名
+        name: "Baked Salmon",
+        //材料のリスト
+        ingredients: [
+          { name: "Salmon", amount: 1, measurement: "l lb" },
+          { name: "Pine Nuts", amount: 1, measurement: "cup" },
+          { name: "Butter Lettuce", amount: 2, measurement: "cups" },
+          { name: "Yellow Squash", amount: 1, measurement: "med" },
+          { name: "Olive Oil", amount: 0.5, measurement: "cup" },
+          { name: "Garlic", amount: 3, measurement: "cloves" },
+        ],
+        //手順
+        steps: [
+          "Preheat the oven to 350 degrees.",
+          "Spread the olive oil around a glass baking dish.",
+          "Add the salmon, garlic, and pine nuts to the dish.",
+          "Bake for 15 minutes.",
+          "Add the yellow squash and put back in the oven for 30 mins.",
+          "Remove from oven and let cool for 15 minutes. Add the lettuce and serve.",
+        ],
+      },
+      {
+          //料理名
+        name: "Fish Tacos",
+        //材料のリスト
+        ingredients: [
+          { name: "Whitefish", amount: 1, measurement: "l lb" },
+          { name: "Cheese", amount: 1, measurement: "cup" },
+          { name: "Iceberg Lettuce", amount: 2, measurement: "cups" },
+          { name: "Tomatoes", amount: 2, measurement: "large" },
+          { name: "Tortillas", amount: 3, measurement: "med" },
+        ],
+        //手順
+        steps: [
+          "Cook the fish on the grill until hot.",
+          "Place the fish on the 3 tortillas.",
+          "Top them with lettuce, tomatoes, and cheese",
+        ],
+      },
+    ];
+      //Recipeコンポーネント
+    const Recipe = ({ name, ingredients, steps }) => (
+      <section id={name.toLowerCase().replace(/ /g, "-")}>
+        <h1>{name}</h1>
+        <ul className="ingredients">
+          {ingredients.map((ingredient, i) => (
+            <li key={i}>{ingredient.name}</li>
+          ))}
+        </ul>
+        <section className="instructions">
+          <h2>Cooking Instructions</h2>
+          {steps.map((step, i) => (
+            <p key={i}>{step}</p>
+          ))}
+        </section>
+      </section>
+    );
+      //Menuコンポーネント
+    const Menu = ({ title, recipes }) => (
+      <article>
+        <header>
+          <h1>{title}</h1>
+        </header>
+        <div className="recipes">
+          {recipes.map((recipe, i) => (
+            <Recipe key={i} {...recipe} />
+          ))}
+        </div>
+      </article>
+    );
+      //Menuコンポーネントの描画
+    ReactDOM.render(
+      <Menu recipes={data} title="Delicious Recipes" />,
+      document.getElementById("react-container")
+    );
+    </script>
+  </body>
+</html>

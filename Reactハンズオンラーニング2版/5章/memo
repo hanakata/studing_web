@@ -1,5 +1,20 @@
 ReactとJSX
 
+JSXを使ってReact要素を記述する
+    JSXとHTMLの違い
+        コンポーネントタグ
+            JSXにはコンポーネントを記述できる
+        classNameプロパティ
+            要素のclass属性にはclassNameを利用する
+        JavaScript式
+            波かっこ内の式が実行時に評価される
+    BabelによるJSXの変換
+        Babelでコンパイル可能
+
+レシピのコンポーネントをJSXで記述する
+    JSXを利用すればReact要素を簡潔に書けるがブラウザはJSXを読むことはできない
+        ブラウザで実行するまえにJSに変更する必要がある
+
 
 用語
 JSX
